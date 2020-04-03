@@ -2,9 +2,11 @@
 
 namespace DataStructures.structures.common
 {
-    public interface ILinkedList<T> : IEnumerable<T>
+    public interface IList<T> : IEnumerable<T>
     {
         int Count { get; }
+
+        T this[int index] => ValueAt(index);
 
         void AddFirst(T data)
         {

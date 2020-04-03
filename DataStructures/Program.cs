@@ -8,7 +8,7 @@ namespace DataStructures
     {
         private static void Main()
         {
-            ILinkedList<int> list = new LinkedList<int>();
+            IList<int> list = new LinkedList<int>();
             list.AddFirst(5);
             list.AddFirst(6);
             list.AddLast(7);
@@ -19,6 +19,7 @@ namespace DataStructures
             list.RemoveAt(2);
             list.InsertAt(5, 2);
             Console.Out.WriteLine(list);
+            Console.Out.WriteLine(list[2]);
             list.Reverse();
             Console.Out.WriteLine(list);
         }

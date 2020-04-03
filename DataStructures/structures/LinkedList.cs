@@ -2,13 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using DataStructures.structures.common;
 using DataStructures.structures.enumerators;
 using DataStructures.structures.models;
 
 namespace DataStructures.structures
 {
-    public class LinkedList<T> : ILinkedList<T>
+    public class LinkedList<T> : common.IList<T>
     {
         private Node<T> _head;
 
@@ -18,7 +17,7 @@ namespace DataStructures.structures
             _head = null;
         }
 
-        public int Count { get; set; }
+        public int Count { get; private set; }
 
         public IEnumerator<T> GetEnumerator()
         {

@@ -9,7 +9,7 @@ namespace DataStructures.structures
 {
     public class LinkedList<T> : common.IList<T>
     {
-        private Node<T> _head;
+        private ListNode<T> _head;
 
         public LinkedList()
         {
@@ -46,14 +46,14 @@ namespace DataStructures.structures
         {
             if (index == 0)
             {
-                _head = new Node<T>(data, _head);
+                _head = new ListNode<T>(data, _head);
             }
             else if (index <= Count)
             {
                 var currentNode = _head;
                 for (var i = 0; currentNode != null; i++)
                 {
-                    if (i == index - 1) currentNode.Next = new Node<T>(data, currentNode.Next);
+                    if (i == index - 1) currentNode.Next = new ListNode<T>(data, currentNode.Next);
                     currentNode = currentNode.Next;
                 }
             }
@@ -90,17 +90,17 @@ namespace DataStructures.structures
 
         public void Reverse()
         {
-            Node<T> previousNode = null;
+            ListNode<T> previousListNode = null;
             var currentNode = _head;
             while (currentNode != null)
             {
                 var next = currentNode.Next;
-                currentNode.Next = previousNode;
-                previousNode = currentNode;
+                currentNode.Next = previousListNode;
+                previousListNode = currentNode;
                 currentNode = next;
             }
 
-            _head = previousNode;
+            _head = previousListNode;
         }
 
         public override string ToString()

@@ -8,14 +8,19 @@ namespace DataStructures
     {
         private static void Main()
         {
-            var list = new LinkedList<string>() as ILinkedList<string>;
-            list.AddFirst("Hello");
-            list.AddFirst("Portal gun");
-            list.AddLast("Testing here");
-            list.AddFirst("Once more!!");
+            ILinkedList<int> list = new LinkedList<int>();
+            list.AddFirst(5);
+            list.AddFirst(6);
+            list.AddLast(7);
+            list.AddFirst(8);
+            Console.Out.WriteLine(list.ValueAt(0));
+            Console.Out.WriteLine(list.ValueAt(3));
+            Console.Out.WriteLine(list);
+            list.RemoveAt(2);
+            list.InsertAt(5, 2);
             Console.Out.WriteLine(list);
             list.Reverse();
-            Console.Out.Write(list);
+            Console.Out.WriteLine(list);
         }
     }
 }

@@ -5,10 +5,10 @@ namespace DataStructures.structures.common
 {
     public interface ISet<T> : IEnumerable<T> where T : IComparable<T>
     {
-        void Add(T data);
+        bool Add(T data);
 
-        void Contains(T data);
+        bool Contains(T data);
 
-        void Remove(T data);
+        bool Remove(T data);
     }
 }

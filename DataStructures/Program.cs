@@ -1,20 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using DataStructures.algorithms;
 using DataStructures.structures;
-using DataStructures.structures.common;
 
 namespace DataStructures
 {
-    internal class Program
+    internal static class Program
     {
         private static void Main()
         {
-            //TestLinkedList();
+            TestLinkedList();
             TestBinaryTree();
+            TestMergeSort();
+        }
+
+        private static void TestMergeSort()
+        {
+            var array = new[] {1, 2, 3, 4, 5, 6, 2123, 124, 12, 123, 120, 12312};
+            OutputArray(array);
+            MergeSort.Sort(array);
+            OutputArray(array);
+        }
+
+        private static void OutputArray<T>(IEnumerable<T> array)
+        {
+            foreach (var value in array) Console.Write(value + " ");
+            Console.WriteLine();
         }
 
         private static void TestBinaryTree()
         {
-            ISet<int> tree = new TreeSet<int>();
+            structures.common.ISet<int> tree = new TreeSet<int>();
             tree.Add(5);
             tree.Add(6);
             tree.Add(9);
@@ -30,7 +46,7 @@ namespace DataStructures
 
         private static void TestLinkedList()
         {
-            IList<int> list = new LinkedList<int>();
+            structures.common.IList<int> list = new structures.LinkedList<int>();
             list.AddFirst(5);
             list.AddFirst(6);
             list.AddLast(7);

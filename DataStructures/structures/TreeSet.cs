@@ -56,22 +56,24 @@ namespace DataStructures.structures
         {
             if (node == null) return null;
             var compareTo = data.CompareTo(node.Data);
-            if (compareTo == LessThan)
+            switch (compareTo)
             {
-                node.Left = RemoveElem(data, node.Left);
-            }
-            else if (compareTo == GreaterThan)
-            {
-                node.Right = RemoveElem(data, node.Right);
-            }
-            else
-            {
-                if (node.Right == null) return node.Left;
-                if (node.Left == null) return node.Right;
-                var temp = node;
-                node = MinElem(temp.Right);
-                node.Right = DeleteMin(temp.Right);
-                node.Left = temp.Left;
+                case LessThan:
+                    node.Left = RemoveElem(data, node.Left);
+                    break;
+                case GreaterThan:
+                    node.Right = RemoveElem(data, node.Right);
+                    break;
+                default:
+                {
+                    if (node.Right == null) return node.Left;
+                    if (node.Left == null) return node.Right;
+                    var temp = node;
+                    node = MinElem(temp.Right);
+                    node.Right = DeleteMin(temp.Right);
+                    node.Left = temp.Left;
+                    break;
+                }
             }
 
             return node;

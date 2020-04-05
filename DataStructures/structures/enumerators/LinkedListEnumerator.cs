@@ -7,39 +7,39 @@ namespace DataStructures.structures.enumerators
     public class LinkedListEnumerator<T> : IEnumerator<T>
     {
         private readonly ListNode<T> _head;
-        private ListNode<T> _currentListNode;
+        private ListNode<T> _currentNode;
 
         public LinkedListEnumerator(ListNode<T> head)
         {
             _head = head;
-            _currentListNode = null;
+            _currentNode = null;
         }
 
         public bool MoveNext()
         {
-            if (_currentListNode == null)
+            if (_currentNode == null)
             {
-                _currentListNode = _head;
+                _currentNode = _head;
                 return _head != null;
             }
 
-            if (_currentListNode.Next == null) return false;
-            _currentListNode = _currentListNode.Next;
+            if (_currentNode.Next == null) return false;
+            _currentNode = _currentNode.Next;
             return true;
         }
 
         public void Reset()
         {
-            _currentListNode = _head;
+            _currentNode = null;
         }
 
-        object IEnumerator.Current => _currentListNode;
+        object IEnumerator.Current => _currentNode;
 
         public void Dispose()
         {
             //Nothing to dispose
         }
 
-        public T Current => _currentListNode.Data;
+        public T Current => _currentNode.Data;
     }
 }

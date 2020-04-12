@@ -12,6 +12,15 @@ namespace DataStructures
             TestLinkedList();
             TestBinaryTree();
             TestMergeSort();
+            TestInsertionSort();
+        }
+
+        private static void TestInsertionSort()
+        {
+            var array = new[] {1, 2, 3, 4, 5, 6, 2123, 124, 12, 123, 120, 12312};
+            OutputArray(array);
+            InsertionSort.Sort(array);
+            OutputArray(array);
         }
 
         private static void TestMergeSort()
